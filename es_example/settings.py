@@ -64,13 +64,13 @@ REST_FRAMEWORK = {
 # Elasticsearch configuration
 ELASTICSEARCH_DSL = {
     'default': {
-        'hosts': 'localhost:9200'
+        'hosts': 'http://10.10.0.27:9200'
     },
 }
 
 ELASTICSEARCH_INDEX_NAMES = {
-    'search_indexes.documents.book': 'book',
-    'search_indexes.documents.publisher': 'publisher',
+    'books': 'books',
+    'publishers': 'publishers',
 }
 
 MIDDLEWARE = [
@@ -88,8 +88,7 @@ ROOT_URLCONF = "es_example.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / 'templates']
-        ,
+        "DIRS": [BASE_DIR / 'templates'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

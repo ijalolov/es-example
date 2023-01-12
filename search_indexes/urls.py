@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from .viewsets.book import BookDocumentView
+from .views import BookDocumentView
 
 
 router = DefaultRouter()
