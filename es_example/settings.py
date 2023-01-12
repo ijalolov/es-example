@@ -64,7 +64,7 @@ REST_FRAMEWORK = {
 # Elasticsearch configuration
 ELASTICSEARCH_DSL = {
     'default': {
-        'hosts': 'http://10.10.0.27:9200'
+        'hosts': 'http://10.0.0.32:9200'
     },
 }
 

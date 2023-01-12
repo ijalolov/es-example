@@ -13,6 +13,7 @@ from django_elasticsearch_dsl_drf.constants import (
 from django_elasticsearch_dsl_drf.filter_backends import (
     FilteringFilterBackend,
     SearchFilterBackend,
+    MultiMatchSearchFilterBackend
 )
 from django_elasticsearch_dsl_drf.viewsets import BaseDocumentViewSet
 from django_elasticsearch_dsl_drf.pagination import PageNumberPagination
@@ -33,6 +34,7 @@ class BookDocumentView(BaseDocumentViewSet):
         # IdsFilterBackend,
         # OrderingFilterBackend,
         # DefaultOrderingFilterBackend,
+        MultiMatchSearchFilterBackend,
         SearchFilterBackend,
     ]
     # Define search fields
@@ -107,3 +109,8 @@ class BookDocumentView(BaseDocumentViewSet):
     # }
     # Specify default ordering
     ordering = ('id', 'title', 'price',)
+    multi_match_search_fields = {
+        "title": {"boost": 3},
+        "description": {"boost": 7},
+    }
+
